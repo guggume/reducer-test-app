@@ -1,26 +1,9 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
-import { store, actions } from 'redux-rest-reducer';
+import { store } from 'redux-rest-reducer';
 import Loader from '../../components/loader';
-
-const get = actions.get(id => `/api/skills/${id}` , {
-  PENDING: 'SKILLS_GET',
-  SUCCESS: 'SKILLS_GET_SUCCESS',
-  FAILURE: 'SKILLS_GET_FAILURE',
-});
-
-const put = actions.put(id => `/api/skills/${id}` , {
-  PENDING: 'SKILLS_PUT',
-  SUCCESS: 'SKILLS_PUT_SUCCESS',
-  FAILURE: 'SKILLS_PUT_FAILURE',
-});
-
-const remove = actions.remove(id => `/api/skills/${id}` , {
-  PENDING: 'SKILLS_DELETE',
-  SUCCESS: 'SKILLS_DELETE_SUCCESS',
-  FAILURE: 'SKILLS_DELETE_FAILURE',
-});
+import { get, put, remove } from '../../actions/skills';
 
 class SkillEdit extends PureComponent {
   onSubmit = (e) => {

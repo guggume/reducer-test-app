@@ -1,21 +1,16 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
-import { store, actions } from 'redux-rest-reducer';
+import { store } from 'redux-rest-reducer';
 import { Redirect } from 'react-router-dom';
+import { post } from '../../actions/skills';
 import uuid from 'uuid/v1';
-
-const post = actions.post(() => `/api/skills` , {
-  PENDING: 'SKILLS_POST',
-  SUCCESS: 'SKILLS_POST_SUCCESS',
-  FAILURE: 'SKILLS_POST_FAILURE',
-});
 
 class SkillCreate extends PureComponent {
   onSubmit = (e) => {
     e.preventDefault();
 
-    const { skill, skillId, onPOST } = this.props;
+    const { skillId, onPOST } = this.props;
 
     console.log(skillId);
     onPOST(skillId, {

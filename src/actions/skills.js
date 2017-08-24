@@ -1,0 +1,47 @@
+import { actions } from 'redux-rest-reducer';
+
+export const ACTIONS = {
+  GET_ALL: 'SKILLS_GET_ALL',
+  GET_ALL_SUCCESS: 'SKILLS_GET_ALL_SUCCESS',
+  GET: 'SKILLS_GET',
+  GET_SUCCESS: 'SKILLS_GET_SUCCESS',
+  GET_FAILURE: 'SKILLS_GET_FAILURE',
+  PUT: 'SKILLS_PUT',
+  PUT_SUCCESS: 'SKILLS_PUT_SUCCESS',
+  PUT_FAILURE: 'SKILLS_PUT_FAILURE',
+  DELETE: 'SKILLS_DELETE',
+  DELETE_SUCCESS: 'SKILLS_DELETE_SUCCESS',
+  DELETE_FAILURE: 'SKILLS_DELETE_FAILURE',
+  POST: 'SKILLS_POST',
+  POST_SUCCESS: 'SKILLS_POST_SUCCESS',
+  POST_FAILURE: 'SKILLS_POST_FAILURE',
+};
+
+export const getAll = actions.getAll(() => `/api/skills` , {
+  PENDING: ACTIONS.GET_ALL,
+  SUCCESS: ACTIONS.GET_ALL_SUCCESS,
+});
+
+export const get = actions.get(id => `/api/skills/${id}` , {
+  PENDING: ACTIONS.GET,
+  SUCCESS: ACTIONS.GET_SUCCESS,
+  FAILURE: ACTIONS.GET_FAILURE,
+});
+
+export const put = actions.put(id => `/api/skills/${id}` , {
+  PENDING: ACTIONS.PUT,
+  SUCCESS: ACTIONS.PUT_SUCCESS,
+  FAILURE: ACTIONS.PUT_FAILURE,
+});
+
+export const remove = actions.remove(id => `/api/skills/${id}` , {
+  PENDING: ACTIONS.DELETE,
+  SUCCESS: ACTIONS.DELETE_SUCCESS,
+  FAILURE: ACTIONS.DELETE_FAILURE,
+});
+
+export const post = actions.post(() => `/api/skills` , {
+  PENDING: ACTIONS.POST,
+  SUCCESS: ACTIONS.POST_SUCCESS,
+  FAILURE: ACTIONS.POST_FAILURE,
+});

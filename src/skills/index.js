@@ -1,14 +1,10 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
-import { store, actions } from 'redux-rest-reducer';
+import { store } from 'redux-rest-reducer';
 import { Link } from 'react-router-dom';
 import Loader from '../components/loader';
-
-const getAll = actions.getAll(() => `/api/skills` , {
-  PENDING: 'SKILLS_GET_ALL',
-  SUCCESS: 'SKILLS_GET_ALL_SUCCESS',
-});
+import { getAll } from '../actions/skills';
 
 class Skills extends PureComponent {
   render() {
